@@ -15,7 +15,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (instancetype)initWithConfig:(id)config;
 
 @property (assign, nonatomic) BOOL isSelected;
-@property (assign, nonatomic) BOOL isMingWen;
+@property (assign, nonatomic) BOOL isMingWen;   //有 密码 ｜ 明文 两种形式的才需要设置 一般不用动
 @property (strong, nonatomic) NSString *pasdChar;
 
 @end

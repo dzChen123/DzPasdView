@@ -24,10 +24,9 @@ typedef enum{
 @property (assign, nonatomic) CGFloat pasdViewInset; //最左最右小格子到边缘的距离
 
 @property (assign, nonatomic) CGFloat pasdItemWidth; //小格子宽度
-@property (assign, nonatomic) CGFloat pasdItemBorderWidth; //小格子border宽度
 @property (assign, nonatomic) CGFloat pasdItemPadding; //小格子之间的间距
 @property (strong, nonatomic) UIColor *pasdItemBgColor;  //每个小格子的背景色
-@property (strong, nonatomic) UIColor *pasdItemBorderColor;  //每个小格子的border色
+@property (assign, nonatomic) CGFloat pasdItemBorderWidth; //小格子border宽度
 @property (strong, nonatomic) UIColor *contentColor;    //小格子内容的颜色
 @property (assign, nonatomic) CGFloat contentFontSize;  //如果是明文显示的话必填
 @property (assign, nonatomic) CGFloat contentDotWidth;  //如果是隐藏显示的话必填
