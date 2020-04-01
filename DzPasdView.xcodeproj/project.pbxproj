@@ -14,6 +14,9 @@
 		060FAB8E2433246400F16B73 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 060FAB8D2433246400F16B73 /* Assets.xcassets */; };
 		060FAB912433246400F16B73 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 060FAB8F2433246400F16B73 /* LaunchScreen.storyboard */; };
 		060FAB942433246400F16B73 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 060FAB932433246400F16B73 /* main.m */; };
+		060FAB9D24332C3F00F16B73 /* DzPasdView.m in Sources */ = {isa = PBXBuildFile; fileRef = 060FAB9C24332C3F00F16B73 /* DzPasdView.m */; };
+		060FABA02433333900F16B73 /* DzPasdItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 060FAB9F2433333900F16B73 /* DzPasdItemView.m */; };
+		060FABA42434309500F16B73 /* DzPasdViewConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 060FABA32434309500F16B73 /* DzPasdViewConfig.m */; };
 		E81B34C743B9EDAF25B3DF6A /* libPods-DzPasdView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BA660F3FDC3EB878BE6C13D /* libPods-DzPasdView.a */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +33,12 @@
 		060FAB902433246400F16B73 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		060FAB922433246400F16B73 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		060FAB932433246400F16B73 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		060FAB9B24332C3F00F16B73 /* DzPasdView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DzPasdView.h; sourceTree = "<group>"; };
+		060FAB9C24332C3F00F16B73 /* DzPasdView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DzPasdView.m; sourceTree = "<group>"; };
+		060FAB9E2433333900F16B73 /* DzPasdItemView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DzPasdItemView.h; sourceTree = "<group>"; };
+		060FAB9F2433333900F16B73 /* DzPasdItemView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DzPasdItemView.m; sourceTree = "<group>"; };
+		060FABA22434309500F16B73 /* DzPasdViewConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DzPasdViewConfig.h; sourceTree = "<group>"; };
+		060FABA32434309500F16B73 /* DzPasdViewConfig.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DzPasdViewConfig.m; sourceTree = "<group>"; };
 		6BA660F3FDC3EB878BE6C13D /* libPods-DzPasdView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-DzPasdView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC035BF4E90E5E05B4669023 /* Pods-DzPasdView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DzPasdView.debug.xcconfig"; path = "Target Support Files/Pods-DzPasdView/Pods-DzPasdView.debug.xcconfig"; sourceTree = "<group>"; };
 		F7C94E820C1542A215728C2C /* Pods-DzPasdView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DzPasdView.release.xcconfig"; path = "Target Support Files/Pods-DzPasdView/Pods-DzPasdView.release.xcconfig"; sourceTree = "<group>"; };
@@ -68,6 +77,7 @@
 		060FAB802433246200F16B73 /* DzPasdView */ = {
 			isa = PBXGroup;
 			children = (
+				060FAB9A24332BEF00F16B73 /* DzPasdView */,
 				060FAB812433246200F16B73 /* AppDelegate.h */,
 				060FAB822433246200F16B73 /* AppDelegate.m */,
 				060FAB842433246200F16B73 /* SceneDelegate.h */,
@@ -81,6 +91,35 @@
 				060FAB932433246400F16B73 /* main.m */,
 			);
 			path = DzPasdView;
+			sourceTree = "<group>";
+		};
+		060FAB9A24332BEF00F16B73 /* DzPasdView */ = {
+			isa = PBXGroup;
+			children = (
+				060FABA52434321900F16B73 /* Model */,
+				060FABA62434322800F16B73 /* Item */,
+				060FAB9B24332C3F00F16B73 /* DzPasdView.h */,
+				060FAB9C24332C3F00F16B73 /* DzPasdView.m */,
+			);
+			path = DzPasdView;
+			sourceTree = "<group>";
+		};
+		060FABA52434321900F16B73 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				060FABA22434309500F16B73 /* DzPasdViewConfig.h */,
+				060FABA32434309500F16B73 /* DzPasdViewConfig.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		060FABA62434322800F16B73 /* Item */ = {
+			isa = PBXGroup;
+			children = (
+				060FAB9E2433333900F16B73 /* DzPasdItemView.h */,
+				060FAB9F2433333900F16B73 /* DzPasdItemView.m */,
+			);
+			path = Item;
 			sourceTree = "<group>";
 		};
 		449A8F139A751140DB16986E /* Pods */ = {
@@ -196,8 +235,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				060FABA42434309500F16B73 /* DzPasdViewConfig.m in Sources */,
 				060FAB892433246200F16B73 /* ViewController.m in Sources */,
+				060FABA02433333900F16B73 /* DzPasdItemView.m in Sources */,
 				060FAB832433246200F16B73 /* AppDelegate.m in Sources */,
+				060FAB9D24332C3F00F16B73 /* DzPasdView.m in Sources */,
 				060FAB942433246400F16B73 /* main.m in Sources */,
 				060FAB862433246200F16B73 /* SceneDelegate.m in Sources */,
 			);
