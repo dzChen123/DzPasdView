@@ -16,8 +16,7 @@
 @property (strong, nonatomic) UIView *dotView;      //密码显示点
 @property (strong, nonatomic) UILabel *contentLab;      //明文显示内容
 
-@property (assign, nonatomic) DzPasdRevealType revealType;
-@property (strong, nonatomic) UIColor *selectBorderColor, *normalBorderColor;
+@property (strong, nonatomic) DzPasdViewConfig *config;
 
 @end
 
@@ -36,8 +35,8 @@
 
 - (void)createUIWithConfig:(DzPasdViewConfig *)config {
     self.isMingWen = NO;
-    self.selectBorderColor = config.selectBorderColor;
-    self.normalBorderColor = config.normalBorderColor;
+    self.config = config;
+    
     self.backgroundColor = config.pasdItemBgColor;
     self.layer.borderWidth = config.pasdItemBorderWidth;
     self.layer.borderColor = config.normalBorderColor.CGColor;
@@ -77,10 +76,31 @@
     }];
 }
 
+
+#pragma mark -  other method
+- (void)wrongPasdContent {
+    DzPasdRevealType revealType = self.config.revealType;
+    if (revealType == DzPasdRevealTypeMingWen || (revealType == DzPasdRevealTypeChangeable && self.contentLab.hidden == NO)) {
+        return;
+    }
+    //只在密文显示的时候 才用
+    self.dotView.hidden = NO;
+    self.dotView.backgroundColor = self.config.wrongPasdDotColor;
+    self.backgroundColor = self.config.wrongPasdItemBgColor;
+    self.layer.borderColor = self.config.wrongPasdItemBorderColor.CGColor;
+}
+
+- (void)changeToNormalState {
+    self.backgroundColor = self.config.pasdItemBgColor;
+    self.dotView.backgroundColor = self.config.contentColor;
+    self.layer.borderColor = self.config.normalBorderColor.CGColor;
+}
+
+
 #pragma mark -  Setter && Getter
 - (void)setIsSelected:(BOOL)isSelected {
     _isSelected = isSelected;
-    self.layer.borderColor = isSelected ? self.selectBorderColor.CGColor : self.normalBorderColor.CGColor;
+    self.layer.borderColor = isSelected ? self.config.selectBorderColor.CGColor : self.config.normalBorderColor.CGColor;
 }
 
 - (void)setPasdChar:(NSString *)pasdChar {
@@ -90,7 +110,8 @@
     self.contentLab.hidden = isEmpty;
     self.dotView.hidden = isEmpty;
     if (!isEmpty) {
-        if (self.revealType == DzPasdRevealTypeMingWen || (self.revealType == DzPasdRevealTypeChangeable && self.isMingWen)) {
+        DzPasdRevealType revealType = self.config.revealType;
+        if (revealType == DzPasdRevealTypeMingWen || (revealType == DzPasdRevealTypeChangeable && self.isMingWen)) {
             self.contentLab.text = pasdChar;
         }
     }

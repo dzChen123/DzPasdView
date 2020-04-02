@@ -87,6 +87,12 @@
     }
     NSInteger selectIndex = replacedText.length >= self.pasdLength ? (self.pasdLength - 1) : replacedText.length;
     ((DzPasdItemView *)self.itemViews[selectIndex]).isSelected = YES;
+    if ([self.delegate respondsToSelector:@selector(pasdFieldTextDidChanged:)]) {
+        [self.delegate pasdFieldTextDidChanged:replacedText];
+    }
+    if (replacedText.length == self.pasdLength && [self.delegate respondsToSelector:@selector(pasdFieldTextDidComplete:)]) {
+        [self.delegate pasdFieldTextDidComplete:replacedText];
+    }
     
     return YES;
 }
@@ -108,6 +114,33 @@
         item.isSelected = NO;
     }
     return [super resignFirstResponder];
+}
+
+- (void)removePasdContent {
+    self.pasdField.text = @"";
+    for (DzPasdItemView *item in self.itemViews) {
+        item.isSelected = NO;
+        item.pasdChar = @"";
+    }
+    ((DzPasdItemView *)self.itemViews[0]).isSelected = YES;
+}
+
+- (void)wrongPasdContent {
+    for (DzPasdItemView *item in self.itemViews) {
+        [item wrongPasdContent];
+    }
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if ([self.delegate respondsToSelector:@selector(pasdFieldWrongTextDidEntered)]) {
+            [self.delegate pasdFieldWrongTextDidEntered];
+        }
+        [self removePasdContent];
+    });
+}
+
+
+#pragma mark -  Setter && Getter
+- (NSString *)pasd {
+    return self.pasdField.text;
 }
 
 @end

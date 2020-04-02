@@ -13,6 +13,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface DzPasdItemView : UIView
 
 - (instancetype)initWithConfig:(id)config;
+- (void)wrongPasdContent;   //密码校验错误的时候 显示
+- (void)changeToNormalState;
 
 @property (assign, nonatomic) BOOL isSelected;
 @property (assign, nonatomic) BOOL isMingWen;   //有 密码 ｜ 明文 两种形式的才需要设置 一般不用动

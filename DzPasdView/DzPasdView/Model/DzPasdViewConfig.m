@@ -17,7 +17,7 @@
         self.pasdLength = 6;
         self.pasdViewInset = 30;
         self.pasdItemWidth = 45;
-        self.pasdItemBorderWidth = 1;
+        self.pasdItemBorderWidth = .5f;
         self.pasdItemPadding = 8;
         self.pasdItemBgColor = [UIColor lightGrayColor];
         self.contentColor = [UIColor blackColor];

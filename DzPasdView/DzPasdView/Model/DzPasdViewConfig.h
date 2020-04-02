@@ -31,6 +31,7 @@ typedef enum{
 @property (assign, nonatomic) CGFloat contentFontSize;  //如果是明文显示的话必填
 @property (assign, nonatomic) CGFloat contentDotWidth;  //如果是隐藏显示的话必填
 @property (strong, nonatomic) UIColor *selectBorderColor, *normalBorderColor;   //小格子被选中和未选中的边框颜色
+@property (strong, nonatomic) UIColor *wrongPasdDotColor, *wrongPasdItemBgColor, *wrongPasdItemBorderColor;
 
 @end
 
