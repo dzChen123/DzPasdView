@@ -17,7 +17,7 @@
 @property (strong, nonatomic) UILabel *contentLab;      //明文显示内容
 
 @property (assign, nonatomic) DzPasdRevealType revealType;
-@property (strong, nonatomic) UIColor *selectBorderColor, *normalColor;
+@property (strong, nonatomic) UIColor *selectBorderColor, *normalBorderColor;
 
 @end
 
@@ -36,6 +36,8 @@
 
 - (void)createUIWithConfig:(DzPasdViewConfig *)config {
     self.isMingWen = NO;
+    self.selectBorderColor = config.selectBorderColor;
+    self.normalBorderColor = config.normalBorderColor;
     self.backgroundColor = config.pasdItemBgColor;
     self.layer.borderWidth = config.pasdItemBorderWidth;
     self.layer.borderColor = config.normalBorderColor.CGColor;
@@ -78,7 +80,7 @@
 #pragma mark -  Setter && Getter
 - (void)setIsSelected:(BOOL)isSelected {
     _isSelected = isSelected;
-    self.layer.borderColor = isSelected ? self.selectBorderColor.CGColor : self.normalColor.CGColor;
+    self.layer.borderColor = isSelected ? self.selectBorderColor.CGColor : self.normalBorderColor.CGColor;
 }
 
 - (void)setPasdChar:(NSString *)pasdChar {

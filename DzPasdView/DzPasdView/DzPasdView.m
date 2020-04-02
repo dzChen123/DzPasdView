@@ -32,6 +32,7 @@
     self = [super init];
     [self createUIWithConfig:config];
     [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(becomeFirstResponder)]];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resignFirstResponder) name:UIKeyboardWillHideNotification object:nil];
     
     return self;
 }
@@ -84,6 +85,8 @@
             item.pasdChar = @"";
         }
     }
+    NSInteger selectIndex = replacedText.length >= self.pasdLength ? (self.pasdLength - 1) : replacedText.length;
+    ((DzPasdItemView *)self.itemViews[selectIndex]).isSelected = YES;
     
     return YES;
 }
@@ -92,6 +95,11 @@
 #pragma mark -  Other method
 - (BOOL)becomeFirstResponder {
     [self.pasdField becomeFirstResponder];
+    
+    NSString *pasd = self.pasdField.text;
+    NSInteger selectIndex = pasd.length >= self.pasdLength ? (self.pasdLength - 1) : pasd.length;
+    ((DzPasdItemView *)self.itemViews[selectIndex]).isSelected = YES;
+    
     return [super becomeFirstResponder];
 }
 
