@@ -121,6 +121,7 @@
     for (DzPasdItemView *item in self.itemViews) {
         item.isSelected = NO;
         item.pasdChar = @"";
+        [item changeToNormalState];
     }
     ((DzPasdItemView *)self.itemViews[0]).isSelected = YES;
 }
